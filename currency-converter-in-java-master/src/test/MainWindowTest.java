@@ -27,12 +27,15 @@ class MainWindowTest {
 
     @Test
     void assertConvert() {
-        //MainWindow.convert();
+        assertEquals(0.93,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
+        assertEquals(55800.0,MainWindow.convert("US Dollar","Euro",listCurr,60000.0));
+        assertEquals(930000.0,MainWindow.convert("US Dollar","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("US Dollar","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("US Dollar","Euro",listCurr,-1000001.0));
     }
 
     @Test
     void assertConvertNoCurr() {
-        //HashMap<String, Double> exVal = curr.getExchangeValues();
-        //assertNull(Currency.convert(-1.0,exVal.get("LOL")));
+        assertEquals(0.0,MainWindow.convert("US Dollar","TEST",listCurr,10.0));
     }
 }

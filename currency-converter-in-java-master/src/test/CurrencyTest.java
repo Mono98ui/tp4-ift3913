@@ -38,8 +38,8 @@ class CurrencyTest {
         assertEquals(55800.0, Currency.convert(60000.0,exVal.get("EUR")));
         assertEquals(930000.0, Currency.convert(1000000.0,exVal.get("EUR")));
 
-        assertNull(Currency.convert(-1.0,exVal.get("EUR")));
-        assertNull(Currency.convert( 1000001.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert(-1.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert( 1000001.0,exVal.get("EUR")));
 
     }
 }
