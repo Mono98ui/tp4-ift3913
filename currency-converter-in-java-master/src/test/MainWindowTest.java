@@ -15,10 +15,12 @@ class MainWindowTest {
 
 
     ArrayList<Currency> listCurr;
+    ArrayList<Currency> listCurrVide;
 
     @BeforeEach
     void setUp() {
         listCurr = Currency.init();
+        listCurrVide = new ArrayList<Currency>();
     }
 
     @AfterEach
@@ -37,5 +39,21 @@ class MainWindowTest {
     @Test
     void assertConvertNoCurr() {
         assertEquals(0.0,MainWindow.convert("US Dollar","TEST",listCurr,10.0));
+    }
+
+    @Test
+    void assertWhiteBoxA(){
+        assertEquals(0.93,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
+        assertEquals(0.0,MainWindow.convert("US Dollar",null,listCurr,1.0));
+        assertEquals(0.0,MainWindow.convert("US Dollar","Euro",listCurrVide,1.0));
+        assertEquals(0.0,MainWindow.convert(null,"Euro",listCurr,1.0));
+    }
+
+    @Test
+    void assertWhiteBoxB(){
+        assertEquals(0.0,MainWindow.convert("US Dollar",null,listCurrVide,1.0));
+        assertEquals(0.0,MainWindow.convert("US Dollar","TEST",listCurr,1.0));
+        assertEquals(0.93,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
+
     }
 }
