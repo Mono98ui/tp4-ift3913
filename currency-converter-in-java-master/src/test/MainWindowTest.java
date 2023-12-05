@@ -29,11 +29,25 @@ class MainWindowTest {
 
     @Test
     void assertConvert() {
-        assertEquals(0.93,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
-        assertEquals(55800.0,MainWindow.convert("US Dollar","Euro",listCurr,60000.0));
-        assertEquals(930000.0,MainWindow.convert("US Dollar","Euro",listCurr,1000000.0));
+        assertEquals(Math.round(1.0 * 0.93 * 100d) / 100d,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 0.93 * 100d) / 100d,MainWindow.convert("US Dollar","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 0.93 * 100d) / 100d,MainWindow.convert("US Dollar","Euro",listCurr,1000000.0));
         assertEquals(0.0,MainWindow.convert("US Dollar","Euro",listCurr,-1.0));
         assertEquals(0.0,MainWindow.convert("US Dollar","Euro",listCurr,-1000001.0));
+
+        assertEquals(Math.round(1.0 * 1.0 * 100d) / 100d,MainWindow.convert("Euro","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 1.0 * 100d) / 100d,MainWindow.convert("Euro","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 1.0 * 100d) / 100d,MainWindow.convert("Euro","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("Euro","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("Euro","Euro",listCurr,-1000001.0));
+
+        assertEquals(Math.round(1.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("British Pound","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("British Pound","Euro",listCurr,-1000001.0));
+
+
     }
 
     @Test
