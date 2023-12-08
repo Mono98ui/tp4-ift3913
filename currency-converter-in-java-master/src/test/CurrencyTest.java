@@ -15,9 +15,6 @@ class CurrencyTest {
     Currency currUSD;
     Currency currEuro;
     Currency currGBP;
-    Currency currCHF;
-    Currency currCNY;
-    Currency currJPY;
 
 
     @BeforeEach
