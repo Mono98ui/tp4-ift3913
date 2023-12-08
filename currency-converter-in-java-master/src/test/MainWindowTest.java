@@ -41,11 +41,24 @@ class MainWindowTest {
         assertEquals(0.0,MainWindow.convert("Euro","Euro",listCurr,-1.0));
         assertEquals(0.0,MainWindow.convert("Euro","Euro",listCurr,-1000001.0));
 
-        assertEquals(Math.round(1.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,1.0));
-        assertEquals(Math.round(60000.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,60000.0));
-        assertEquals(Math.round(1000000.0 * 1.41 * 100d) / 100d,MainWindow.convert("British Pound","Euro",listCurr,1000000.0));
-        assertEquals(0.0,MainWindow.convert("British Pound","Euro",listCurr,-1.0));
-        assertEquals(0.0,MainWindow.convert("British Pound","Euro",listCurr,-1000001.0));
+
+        assertEquals(Math.round(1.0 * 0.93 * 100d) / 100d,MainWindow.convert("Swiss Franc","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 0.93 * 100d) / 100d,MainWindow.convert("Swiss Franc","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 0.93 * 100d) / 100d,MainWindow.convert("Swiss Franc","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("Swiss Franc","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("Swiss Franc","Euro",listCurr,-1000001.0));
+
+        assertEquals(Math.round(1.0 * 0.68  * 100d) / 100d,MainWindow.convert("Canadian Dollar","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 0.68  * 100d) / 100d,MainWindow.convert("Canadian Dollar","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 0.68  * 100d) / 100d,MainWindow.convert("Canadian Dollar","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("Canadian Dollar","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("Canadian Dollar","Euro",listCurr,-1000001.0));
+
+        assertEquals(Math.round(1.0 * 0.61  * 100d) / 100d,MainWindow.convert("Australian Dollar","Euro",listCurr,1.0));
+        assertEquals(Math.round(60000.0 * 0.61 * 100d) / 100d,MainWindow.convert("Australian Dollar","Euro",listCurr,60000.0));
+        assertEquals(Math.round(1000000.0 * 0.61 * 100d) / 100d,MainWindow.convert("Australian Dollar","Euro",listCurr,1000000.0));
+        assertEquals(0.0,MainWindow.convert("Australian Dollar","Euro",listCurr,-1.0));
+        assertEquals(0.0,MainWindow.convert("Australian Dollar","Euro",listCurr,-1000001.0));
 
 
     }

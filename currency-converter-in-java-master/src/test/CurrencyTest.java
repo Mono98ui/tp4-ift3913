@@ -15,6 +15,12 @@ class CurrencyTest {
     Currency currUSD;
     Currency currEuro;
     Currency currGBP;
+    Currency currCHF;
+
+    Currency currCAD;
+
+    Currency currAUD;
+    
 
 
     @BeforeEach
@@ -27,6 +33,15 @@ class CurrencyTest {
 
         currGBP =  new Currency("British Pound", "GBP");
         currGBP.defaultValues();
+
+        currCHF =  new Currency("Swiss Franc", "CHF");
+        currCHF.defaultValues();
+
+        currCAD =  new Currency("Canadian Dollar", "CAD");
+        currCAD.defaultValues();
+
+        currAUD =  new Currency("Australian Dollar", "AUD");
+        currAUD.defaultValues();
         //Nous avons trois classe:
         //[1-1 000 000], <1, >1 000 000\
         //On repete c jeux de text pour tout les currency
@@ -60,6 +75,31 @@ class CurrencyTest {
         assertEquals(Math.round(1.0 * 1.41 * 100d) / 100d, Currency.convert(1.0,exVal.get("EUR")));
         assertEquals(Math.round(60000.0 * 1.41 * 100d) / 100d, Currency.convert(60000.0,exVal.get("EUR")));
         assertEquals(Math.round(1000000.0 * 1.41 * 100d) / 100d, Currency.convert(1000000.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert(-1.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert( 1000001.0,exVal.get("EUR")));
+
+        exVal = currCHF.getExchangeValues();
+
+        assertEquals(Math.round(1.0 * 0.93 * 100d) / 100d, Currency.convert(1.0,exVal.get("EUR")));
+        assertEquals(Math.round(60000.0 * 0.93 * 100d) / 100d, Currency.convert(60000.0,exVal.get("EUR")));
+        assertEquals(Math.round(1000000.0 * 0.93 * 100d) / 100d, Currency.convert(1000000.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert(-1.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert( 1000001.0,exVal.get("EUR")));
+
+        exVal = currCAD.getExchangeValues();
+
+        assertEquals(Math.round(1.0 * 0.68 * 100d) / 100d, Currency.convert(1.0,exVal.get("EUR")));
+        assertEquals(Math.round(60000.0 * 0.68* 100d) / 100d, Currency.convert(60000.0,exVal.get("EUR")));
+        assertEquals(Math.round(1000000.0 * 0.68 * 100d) / 100d, Currency.convert(1000000.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert(-1.0,exVal.get("EUR")));
+        assertEquals(0.0,Currency.convert( 1000001.0,exVal.get("EUR")));
+
+
+        exVal = currAUD.getExchangeValues();
+
+        assertEquals(Math.round(1.0 * 0.61 * 100d) / 100d, Currency.convert(1.0,exVal.get("EUR")));
+        assertEquals(Math.round(60000.0 * 0.61 * 100d) / 100d, Currency.convert(60000.0,exVal.get("EUR")));
+        assertEquals(Math.round(1000000.0 * 0.61 * 100d) / 100d, Currency.convert(1000000.0,exVal.get("EUR")));
         assertEquals(0.0,Currency.convert(-1.0,exVal.get("EUR")));
         assertEquals(0.0,Currency.convert( 1000001.0,exVal.get("EUR")));
 
