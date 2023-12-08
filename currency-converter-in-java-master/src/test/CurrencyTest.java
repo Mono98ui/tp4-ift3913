@@ -20,7 +20,7 @@ class CurrencyTest {
     Currency currCAD;
 
     Currency currAUD;
-    
+
 
 
     @BeforeEach

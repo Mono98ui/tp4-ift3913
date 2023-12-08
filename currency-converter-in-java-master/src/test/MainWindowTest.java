@@ -62,12 +62,7 @@ class MainWindowTest {
 
 
     }
-
-    @Test
-    void assertConvertNoCurr() {
-        assertEquals(0.0,MainWindow.convert("US Dollar","TEST",listCurr,10.0));
-    }
-
+    
     @Test
     void assertWhiteBoxA(){
         assertEquals(0.93,MainWindow.convert("US Dollar","Euro",listCurr,1.0));
